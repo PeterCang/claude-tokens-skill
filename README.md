@@ -30,6 +30,17 @@ claude plugin uninstall tokens@claude-tokens-plugin
 claude plugin marketplace remove claude-tokens-plugin
 ```
 
+## Migrate from old name (claude-tokens-skill)
+
+If you installed the old `claude-tokens-skill` version, run this once to migrate:
+
+```bash
+claude plugin uninstall tokens@claude-tokens-skill
+claude plugin marketplace remove claude-tokens-skill
+claude plugin marketplace add PeterCang/claude-tokens-plugin
+claude plugin install tokens@claude-tokens-plugin --scope user
+```
+
 ## What it shows
 
 - **Today's usage** — token breakdown by project for the current day, with cost
