@@ -24,12 +24,10 @@ Then stop — do not continue.
 
 ## Step 2 — Locate and run the bundled script
 
-The script ships with this plugin. Find it and run it:
-
 ```bash
-SCRIPT=$(find "$HOME/.claude/plugins/cache/claude-tokens-skill/tokens" -name "token_stats.py" 2>/dev/null | head -1)
+SCRIPT=$(find "$HOME/.claude/plugins/cache" -name "token_stats.py" 2>/dev/null | head -1)
 if [ -z "$SCRIPT" ]; then
-  echo "ERROR: token_stats.py not found in plugin directory. Try: claude plugin update tokens@claude-tokens-skill"
+  echo "ERROR: token_stats.py not found. Try: claude plugin update tokens@claude-tokens-plugin"
   exit 1
 fi
 python "$SCRIPT" 2>/dev/null || python3 "$SCRIPT"
