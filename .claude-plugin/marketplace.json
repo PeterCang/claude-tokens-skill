@@ -1,0 +1,14 @@
+{
+  "name": "claude-tokens-skill",
+  "owner": {
+    "name": "PeterCai",
+    "url": "https://github.com/PeterCang"
+  },
+  "plugins": [
+    {
+      "name": "tokens",
+      "source": ".",
+      "description": "Scan all local Claude Code session history and report token usage & cost breakdown"
+    }
+  ]
+}

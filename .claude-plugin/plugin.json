@@ -1,0 +1,13 @@
+{
+  "name": "tokens",
+  "description": "Claude Code /tokens skill — scan all local session history and report token usage & cost breakdown by model, project, date and week.",
+  "version": "1.0.0",
+  "author": {
+    "name": "PeterCai",
+    "url": "https://github.com/PeterCang"
+  },
+  "homepage": "https://github.com/PeterCang/claude-tokens-skill",
+  "repository": "https://github.com/PeterCang/claude-tokens-skill",
+  "license": "MIT",
+  "keywords": ["tokens", "usage", "cost", "stats", "analytics"]
+}
