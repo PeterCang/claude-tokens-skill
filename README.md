@@ -1,6 +1,6 @@
 # claude-tokens-skill
 
-A Claude Code plugin that adds a `/tokens` command to report your complete historical token usage and cost breakdown across all local projects.
+A Claude Code plugin that adds a `/tokens:tokens` command to report your complete historical token usage and cost breakdown across all local projects.
 
 ## Install
 
@@ -15,8 +15,17 @@ Then use it in any Claude Code session:
 /tokens:tokens
 ```
 
+## Update
+
+```bash
+claude plugin update tokens@claude-tokens-skill
+```
+
+This updates both the skill and the bundled `token_stats.py` script.
+
 ## What it shows
 
+- **Today's usage** — token breakdown by project for the current day, with cost
 - **Overview** — active period, projects, sessions, avg session duration & messages
 - **Token breakdown** — input / cache_write / cache_read / output with percentages
 - **Cost estimate** — actual cost vs hypothetical no-cache cost, daily & per-session averages
@@ -32,21 +41,6 @@ Then use it in any Claude Code session:
 
 - Claude Code with session history in `~/.claude/projects/`
 - Python 3.9+ (no extra packages needed)
-
-## Manual install (without plugin system)
-
-```bash
-# 1. Copy the script
-curl -fsSL https://raw.githubusercontent.com/PeterCang/claude-tokens-skill/master/token_stats.py \
-  -o "$HOME/.claude/token_stats.py"
-
-# 2. Install the skill
-mkdir -p "$HOME/.claude/skills/tokens"
-curl -fsSL https://raw.githubusercontent.com/PeterCang/claude-tokens-skill/master/skills/tokens/SKILL.md \
-  -o "$HOME/.claude/skills/tokens/SKILL.md"
-```
-
-Then use `/tokens` in Claude Code.
 
 ## Notes
 

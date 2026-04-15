@@ -7,8 +7,6 @@ description: Count all historical Claude Code token usage across all local proje
 
 ## Step 1 — Detect Python
 
-Run this to find a working Python executable:
-
 ```bash
 python --version 2>/dev/null || python3 --version 2>/dev/null || echo "PYTHON_NOT_FOUND"
 ```
@@ -16,7 +14,7 @@ python --version 2>/dev/null || python3 --version 2>/dev/null || echo "PYTHON_NO
 If the output is `PYTHON_NOT_FOUND`, Python is not installed. Tell the user:
 
 > Python is required but not found on your system. Please install it:
-> - **Windows**: https://www.python.org/downloads/ (check "Add Python to PATH" during install), or run `winget install Python.Python.3`
+> - **Windows**: `winget install Python.Python.3` or https://www.python.org/downloads/ (check "Add Python to PATH")
 > - **macOS**: `brew install python3` or https://www.python.org/downloads/
 > - **Linux**: `sudo apt install python3` / `sudo yum install python3`
 >
@@ -24,34 +22,17 @@ If the output is `PYTHON_NOT_FOUND`, Python is not installed. Tell the user:
 
 Then stop — do not continue.
 
-## Step 2 — Detect the correct Python command
+## Step 2 — Locate and run the bundled script
 
-Determine which command works: `python` or `python3`. Use whichever returned a version number above. Store it as `PYTHON_CMD`.
-
-## Step 3 — Ensure the stats script is present
+The script ships with this plugin. Find it and run it:
 
 ```bash
-test -f "$HOME/.claude/token_stats.py" && echo "exists" || echo "missing"
-```
-
-If "missing", download it:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/PeterCang/claude-tokens-skill/master/token_stats.py -o "$HOME/.claude/token_stats.py"
-```
-
-## Step 4 — Run the stats
-
-Use the Python command detected in Step 2:
-
-```bash
-python "$HOME/.claude/token_stats.py"
-```
-
-or
-
-```bash
-python3 "$HOME/.claude/token_stats.py"
+SCRIPT=$(find "$HOME/.claude/plugins/cache/claude-tokens-skill/tokens" -name "token_stats.py" 2>/dev/null | head -1)
+if [ -z "$SCRIPT" ]; then
+  echo "ERROR: token_stats.py not found in plugin directory. Try: claude plugin update tokens@claude-tokens-skill"
+  exit 1
+fi
+python "$SCRIPT" 2>/dev/null || python3 "$SCRIPT"
 ```
 
 Display the output directly without additional explanation.
