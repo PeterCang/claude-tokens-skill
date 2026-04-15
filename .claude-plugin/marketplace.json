@@ -2,16 +2,15 @@
   "name": "claude-tokens-skill",
   "owner": {
     "name": "PeterCai",
-    "url": "https://github.com/PeterCang"
+    "email": "github.com/PeterCang"
   },
   "plugins": [
     {
       "name": "tokens",
-      "source": {
-        "type": "github",
-        "repo": "PeterCang/claude-tokens-skill"
-      },
-      "description": "Scan all local Claude Code session history and report token usage & cost breakdown"
+      "source": "./",
+      "description": "Scan all local Claude Code session history and report token usage & cost breakdown",
+      "version": "1.0.0",
+      "category": "productivity"
     }
   ]
 }
