@@ -9,7 +9,7 @@
       "name": "tokens",
       "source": "./",
       "description": "Scan all local Claude Code session history and report token usage & cost breakdown",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "productivity"
     }
   ]
