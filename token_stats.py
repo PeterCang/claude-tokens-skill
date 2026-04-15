@@ -222,8 +222,9 @@ def main():
     # 今日按项目明细
     today_projs = by_date_project.get(today, {})
     if today_projs:
-        print(f"\n  {'项目':<36} {'输入':>9} {'缓存写':>9} {'缓存读':>9} {'输出':>7}  {'费用':>8}")
-        print(f"  {'─'*80}")
+        NW, IW, CW = 36, 12, 12
+        print(f"\n  {ljust_cjk('项目', NW)} {'输入':>{IW}} {'缓存写':>{CW}} {'缓存读':>{CW}} {'输出':>{IW}}  {'费用':>9}")
+        print(f"  {'─'*90}")
         def tp_total(d):
             return sum(d[k] for k in ("input_tokens","output_tokens",
                                        "cache_creation_input_tokens","cache_read_input_tokens"))
@@ -234,7 +235,7 @@ def main():
             rd = d["cache_read_input_tokens"]
             o  = d["output_tokens"]
             c  = calc_cost(i, cr, rd, o, "claude-sonnet-4-6")
-            print(f"  {name:<36} {i:>9,} {cr:>9,} {rd:>9,} {o:>7,}  ${c:>7.2f}")
+            print(f"  {ljust_cjk(name, NW)} {i:>{IW},} {cr:>{CW},} {rd:>{CW},} {o:>{IW},}  ${c:>8.2f}")
 
     # ── 1. 总览 ───────────────────────────────────────────────────
     section("总览")
