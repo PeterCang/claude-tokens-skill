@@ -1,12 +1,12 @@
-# claude-tokens-skill
+# claude-tokens-plugin
 
 A Claude Code plugin that adds a `/tokens:tokens` command to report your complete historical token usage and cost breakdown across all local projects.
 
 ## Install
 
 ```bash
-claude plugin marketplace add PeterCang/claude-tokens-skill
-claude plugin install tokens@claude-tokens-skill --scope user
+claude plugin marketplace add PeterCang/claude-tokens-plugin
+claude plugin install tokens@claude-tokens-plugin --scope user
 ```
 
 Then use it in any Claude Code session:
@@ -18,10 +18,17 @@ Then use it in any Claude Code session:
 ## Update
 
 ```bash
-claude plugin update tokens@claude-tokens-skill
+claude plugin update tokens@claude-tokens-plugin
 ```
 
 This updates both the skill and the bundled `token_stats.py` script.
+
+## Uninstall
+
+```bash
+claude plugin uninstall tokens@claude-tokens-plugin
+claude plugin marketplace remove claude-tokens-plugin
+```
 
 ## What it shows
 

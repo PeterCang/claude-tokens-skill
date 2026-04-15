@@ -6,8 +6,8 @@
     "name": "PeterCai",
     "url": "https://github.com/PeterCang"
   },
-  "homepage": "https://github.com/PeterCang/claude-tokens-skill",
-  "repository": "https://github.com/PeterCang/claude-tokens-skill",
+  "homepage": "https://github.com/PeterCang/claude-tokens-plugin",
+  "repository": "https://github.com/PeterCang/claude-tokens-plugin",
   "license": "MIT",
   "keywords": ["tokens", "usage", "cost", "stats", "analytics"]
 }
